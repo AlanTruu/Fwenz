@@ -1,5 +1,5 @@
 import React from 'react'
-import useAuth from '../hooks/UseAuth'
+import useAuth from '../hooks/useAuth'
 import Alert from '../components/Alert';
 
 const Profile = () => {
