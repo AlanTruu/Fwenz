@@ -9,7 +9,8 @@ type Params = {
 }
 
 const getFromEmail = () => 
-    NODE_ENV === 'development' ? 'onboarding@resend.dev' : EMAIL_SENDER;
+    // NODE_ENV === 'development' ? 'onboarding@resend.dev' : EMAIL_SENDER;
+    'onboarding@resend.dev';
 
 const getToEmail = (to : string) =>
     NODE_ENV === 'development' ? 'delivered@resend.dev' : to;
