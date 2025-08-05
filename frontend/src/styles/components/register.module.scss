@@ -1,0 +1,72 @@
+@import '../variables';
+@import '../mixins';
+
+.input {
+    @include input-base;
+}
+
+.page {
+    @include page-container;
+}
+
+.container {
+    @include auth-container;
+}
+
+.header1 {
+    @include header-primary;
+}
+
+.link {
+    @include link-primary;
+}
+
+.forgotLink {
+    margin-bottom: $spacing-sm;
+    margin-top: -$spacing-xs;
+}
+
+.button {
+    @include button-base;
+    margin-top: $spacing-xs;
+}
+
+.errorMessage {
+    @include error-message;
+}
+
+.p {
+    font-size: 0.7rem;
+}
+
+// Responsive styles
+@include mobile {
+    .container {
+        width: 20%;
+        height: 400px;
+        left: 750px;
+        top: 340px;
+    }
+    
+    .header1 {
+        bottom: 400px;
+    }
+    
+    .button {
+        margin-bottom: $spacing-md;
+    }
+    
+    .forgotLink {
+        margin-left: 165px;
+        margin-bottom: $spacing-lg;
+    }
+    
+    .errorMessage {
+        left: 55px;
+    }
+}
+
+
+
+
+

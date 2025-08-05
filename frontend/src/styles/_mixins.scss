@@ -1,0 +1,168 @@
+@import 'variables';
+
+// Button mixins
+@mixin button-base {
+  border: none;
+  border-radius: $border-radius-lg;
+  width: $button-width;
+  height: $button-height;
+  background-color: $primary-color;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@mixin button-danger {
+  @include button-base;
+  background-color: $danger;
+  color: $white;
+  width: 120px;
+  height: 25px;
+  border-radius: $border-radius-sm;
+  font-family: $font-family;
+  font-weight: $font-weight-medium;
+}
+
+@mixin button-small {
+  @include button-base;
+  width: auto;
+  height: auto;
+  padding: $spacing-sm $spacing-lg;
+}
+
+@mixin comments-button {
+  border : none;
+  width : 120px;
+  height : 30px;
+  background-color : $primary-color;
+  border-radius : $border-radius-sm;
+  color : $white;
+  font-family : $font-family;
+  font-weight : $font-weight-medium;
+}
+
+// Input mixins
+@mixin input-base {
+  background-color: $dark-bg;
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  appearance: none;
+  outline: none;
+  width: $input-width;
+  height: $input-height;
+  margin-bottom: $spacing-lg;
+  color: $white;
+  transition: color $transition-normal;
+  
+  &:focus {
+    border: 1px solid $primary-color;
+    
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
+
+// Container mixins
+@mixin page-container {
+  min-height: 90vh;
+  max-width: 100%;
+  position: relative;
+}
+
+@mixin auth-container {
+  position: relative;
+  background-color: $dark-bg;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-lg;
+  height: 100vh;
+  color: $white;
+}
+
+@mixin auth-container-desktop {
+  width: 20%;
+  height: 300px;
+  left: 750px;
+  top: 400px;
+}
+
+@mixin post-container-desktop {
+  width : 450px;
+  height : 700px;
+  background-color : $dark-bg-alt;
+}
+
+// Typography mixins
+@mixin header-primary {
+  color: $white;
+  position: absolute;
+  bottom: 400px;
+}
+
+@mixin header-secondary {
+  color : $white;
+}
+
+@mixin link-primary {
+  color: $lightblue;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin error-message {
+  color: $red;
+  position: relative;
+}
+
+// Responsive mixins
+@mixin mobile {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+// Utility mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row {
+  display: flex;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: $border-radius-circle;
+} 
+

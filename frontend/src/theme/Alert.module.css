@@ -1,0 +1,23 @@
+
+.successMessage {
+    border : 1px solid rgba(63, 195, 128, 0.5);
+    background-color: rgba(63, 195, 128, 0.7);
+}
+
+.errorMessage {
+    border : 1px solid red;
+    background-color: lightcoral;
+}
+
+.successMessage, .errorMessage {
+    /* margin : 0 auto; */
+    width : 250px;
+    height : 100px;
+    color : white;
+    font-size: 1.3rem;
+    border-radius: 16px;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 13px;
+}

@@ -1,0 +1,45 @@
+.page {
+    min-height: 90vh;
+    max-width: 100%;
+    position : relative;
+}
+
+.spinner {
+    height : 120px;
+    width : 120px;
+    border : 6px solid white transparent;
+    margin : 0 auto;
+    border-radius: 50%;
+    animation : 1.3s ease infinite
+}
+
+@keyframes spin {
+    to {transform : rotate(360deg)}
+}
+
+.outlet {
+    width : 60%;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    position : relative;
+    left : 70px;
+}
+
+.menu {
+    position : absolute;
+    right : 30px;
+    top : 20px;
+}
+@media (min-width : 576px) {
+    .menu {
+        top : 0;
+        right : 0;
+    }
+    .outlet {
+        width : 50%;
+        height : 100%;
+        left : 450px;
+    }
+}
+

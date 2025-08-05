@@ -1,0 +1,25 @@
+.header {
+    color : white;
+    margin-bottom: 10px;
+}
+
+.sessions {
+    display : flex;
+    flex-direction: column;
+    gap : 5px;
+}
+
+.deleteButton {
+    border : none;
+    color : white;
+    background-color: #D94126;
+    width : 200px;
+    height : 25px;
+    border-radius: 5px;
+    font-family: "Karla", sans-serif;
+    font-weight: 500;
+}
+
+.errorMessage {
+    color : red;
+}

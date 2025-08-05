@@ -1,0 +1,55 @@
+@import '../variables';
+@import '../mixins';
+
+.userIcon {
+    border: 1px solid $black;
+    @include circle(25px);
+    position: absolute;
+}
+
+.menu {
+    position: absolute;
+    background-color: $dark-bg;
+    @include flex-column;
+    flex-grow: 1;
+    right: 0px;
+    width: 120px;
+    height: 150px;
+}
+
+.button {
+    border: solid $black 1px;
+    flex-grow: 1;
+}
+
+.iconButton {
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    @include circle(100%);
+}
+
+.iconImg {
+    height: 100%;
+    width: 100%;
+    background-color: $black;
+    @include circle(100%);
+}
+
+// Responsive styles
+@include tablet {
+    .menu {
+        width: 200px;
+        height: 150px;
+        right: 0px;
+    }
+    
+    .button {
+        width: 100%;
+    }
+    
+    .userIcon {
+        right: $spacing-lg;
+        top: $spacing-lg;
+    }
+}

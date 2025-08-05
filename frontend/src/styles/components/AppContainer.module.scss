@@ -1,0 +1,48 @@
+@import '../variables';
+@import '../mixins';
+
+.page {
+    min-height: 90vh;
+    max-width: 100%;
+    position : relative;
+}
+
+.spinner {
+    height : 1$spacing-lg;
+    width : 1$spacing-lg;
+    border : 6px solid $white transparent;
+    margin : 0 auto;
+    border-radius: $border-radius-circle;
+    animation : 1.3s ease infinite
+}
+
+@keyframes spin {
+    to {transform : rotate(360deg)}
+}
+
+.outlet {
+    width : 60%;
+    min-height: 90%;
+    display: flex;
+    justify-content: center;
+    position : relative;
+    left : 70px;
+}
+
+.menu {
+    position : absolute;
+    right : $spacing-xl;
+    top : $spacing-lg;
+}
+@include tablet {
+    .menu {
+        top : 0;
+        right : 0;
+    }
+    .outlet {
+        width : 50%;
+        height : 100%;
+        left : 450px;
+    }
+}
+

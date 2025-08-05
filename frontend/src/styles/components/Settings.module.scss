@@ -1,0 +1,49 @@
+
+
+@import '../variables';
+@import '../mixins';
+
+.header {
+    @include flex-center;
+    color: $white;
+    margin-bottom: $spacing-sm;
+}
+
+.sessions {
+    display : flex;
+    flex-direction: column;
+    gap : $spacing-xs;
+}
+
+.deleteButton {
+    border : none;
+    color : $white;
+    background-color: $danger;
+    width : 200px;
+    height : 2$spacing-xs;
+    border-radius: $spacing-xs;
+    font-family: $font-family;
+    font-weight: 500;
+}
+
+.errorMessage {
+    color : $red;
+}
+
+.settingsContainer {
+    @include flex-column;
+    align-items: center;
+}
+
+.settingsAvatar {
+    border-radius: 50%;
+    width : 100px;
+    height : 100px;
+    
+}
+
+.avatarContainer {
+    @include flex-column;
+    align-items: center;
+    gap : $spacing-sm;
+}

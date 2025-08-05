@@ -1,0 +1,25 @@
+@import '../variables';
+@import '../mixins';
+
+.loginButton {
+    border : none;
+    border-radius: $spacing-sm;
+    width: $input-width;
+    height : $spacing-xl;
+    background-color: $primary-color;
+}
+
+.deleteSession {
+    border : none;
+    color : $white;
+    background-color: $danger;
+    width : 100px;
+    height : 2$spacing-xs;
+    border-radius: $spacing-xs;
+    font-family: $font-family;
+    font-weight: 500;
+}
+
+.commentsButton {
+    @include comments-button;
+}

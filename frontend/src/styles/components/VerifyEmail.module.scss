@@ -1,0 +1,74 @@
+
+
+@import '../variables';
+@import '../mixins';
+
+.page {
+    min-height: 90vh;
+}
+
+.spinner {
+    height : 1$spacing-lg;
+    width : 1$spacing-lg;
+    border : 6px solid ;
+    border-color: $white transparent $white transparent;
+    border-radius: $border-radius-circle;
+    animation : spin 1.3s ease infinite;
+}
+
+@keyframes spin {
+    to {transform : rotate(360deg)}
+}
+
+.container { 
+    margin : 0 auto;
+    position : relative;
+    top : 300px;
+}
+
+.text {
+    color : $white;
+    position: relative;
+    top : 2$spacing-xxl;
+    left : 1$spacing-xs;
+}
+
+.homeLink {
+    position: relative;
+    top : 280px;
+    left : 1$spacing-xl;
+    color : $lightblue
+}
+
+.forgotLink {
+    color : $lightblue;
+}
+
+@include tablet {
+    .container {
+        width : 20%;
+        height : 400px;
+    }
+
+    .text {
+        position: relative;
+        top : 2$spacing-xxl;
+    }
+
+    .homeLink {
+        position: relative;
+        top : 280px;
+        left : 1$spacing-xl;
+    }
+
+    .spinner {
+        position : relative;
+        left : 1$spacing-xl;
+        top : 100px;
+    }
+
+    .alert {
+        position : absolute;
+        left : 200px;
+    }
+}
