@@ -33,7 +33,7 @@ app.use('/user', authenticate_1.default, user_route_1.default);
 app.use('/sessions', authenticate_1.default, session_route_1.default);
 app.use('/posts', authenticate_1.default, post_route_1.default);
 app.use(errorHandler_1.default);
-app.listen(4004, async () => {
+app.listen(env_1.PORT, async () => {
     await (0, db_1.default)();
     console.log(`Listening on ${process.env.PORT}`);
 });

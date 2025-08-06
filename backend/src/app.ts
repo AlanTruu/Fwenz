@@ -38,7 +38,7 @@ app.use('/posts', authenticate, postRoutes)
 
 app.use(errorHandler);
 
-app.listen(4004, async () =>  {
+app.listen(PORT, async () =>  {
     await connectToDB();
     console.log(`Listening on ${process.env.PORT}`)
 })
