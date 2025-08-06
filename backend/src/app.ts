@@ -18,14 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
 app.use(cors({
-    origin : APP_ORIGIN,
+    origin : [APP_ORIGIN, APP_ORIGIN.replace(/\/$/, ''), APP_ORIGIN + '/'],
     credentials : true
 }));
 
 app.use(cookieParser());
 
 app.get('/', async (req, res, next) => {
-    throw new Error('meeep');
     res.status(200).json({status : 'healthy'});
 })
 
@@ -35,6 +34,13 @@ app.use('/auth', authRoutes);
 app.use('/user', authenticate, userRoutes)
 app.use('/sessions', authenticate, sessionRoutes)
 app.use('/posts', authenticate, postRoutes)
+
+// 404 handler for unmatched routes
+app.use('*', (req, res) => {
+    res.status(404).json({
+        message: `Route ${req.originalUrl} not found`
+    });
+});
 
 app.use(errorHandler);
 

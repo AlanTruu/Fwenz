@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.clearAuthCookies = exports.setAuthCookies = exports.getRefreshTokenCookieOptions = exports.getAccessTokenCookieOptions = exports.REFRESH_PATH = void 0;
 const Date_1 = require("./Date");
-const secure = process.env.NODE_ENV !== 'development';
+const secure = true;
 exports.REFRESH_PATH = '/auth/refresh';
 const defaults = {
-    sameSite: 'strict',
+    sameSite: secure ? 'none' : 'lax',
     httpOnly: true,
     secure: secure
 };

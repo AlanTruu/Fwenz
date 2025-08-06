@@ -15,6 +15,7 @@ const jwt_1 = require("../utils/jwt");
 const sendMail_1 = require("../utils/sendMail");
 const emailTemplates_1 = require("../utils/emailTemplates");
 const bcrypt_1 = require("../utils/bcrypt");
+const mongoose_1 = __importDefault(require("mongoose"));
 exports.createAccount = (async (data) => {
     //verify existing user doesn't exist
     const existingUser = await user_model_1.UserModel.exists({
@@ -95,9 +96,13 @@ const refreshUserAccessToken = async (refreshToken) => {
 };
 exports.refreshUserAccessToken = refreshUserAccessToken;
 const verifyEmail = async (code) => {
+    // Validate that the code is a valid ObjectId
+    if (!mongoose_1.default.Types.ObjectId.isValid(code)) {
+        throw new Error('Invalid verification code format');
+    }
     //get verification code
     const validCode = await verificationCode_model_1.default.findOne({
-        _id: code,
+        _id: new mongoose_1.default.Types.ObjectId(code),
         type: "email_verification" /* VerificationCodeType.EmailVerification */,
         expiresAt: { $gt: new Date() }
     });

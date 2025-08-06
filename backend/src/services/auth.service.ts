@@ -13,6 +13,7 @@ import { sendMail } from "../utils/sendMail";
 import { getPasswordResetTemplate, getVerifyEmailTemplate } from "../utils/emailTemplates";
 import { Session } from "node:inspector/promises";
 import { hashValue } from "../utils/bcrypt";
+import mongoose from 'mongoose';
 
 
 
@@ -53,6 +54,7 @@ export const createAccount = (async (data : CreateAccountParams ) => {
     if (error) {
         console.error(error);
     }
+    
     //create session
     const session = await SessionModel.create({
         userID : uid,
@@ -135,9 +137,14 @@ export const refreshUserAccessToken = async (refreshToken : string) => {
 
 export const verifyEmail = async (code : string) => {
     
+    // Validate that the code is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(code)) {
+        throw new Error('Invalid verification code format');
+    }
+    
     //get verification code
     const validCode = await VerificationCodeModel.findOne({
-        _id : code,
+        _id : new mongoose.Types.ObjectId(code),
         type : VerificationCodeType.EmailVerification,
         expiresAt : {$gt : new Date()}
     })
