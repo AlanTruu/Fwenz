@@ -1,4 +1,4 @@
-import useAuth from "../hooks/UseAuth"
+import useAuth from "../hooks/useAuth"
 import { Navigate, Outlet } from "react-router-dom"
 import UserMenu from "./UserMenu";
 import styles from '../styles/components/AppContainer.module.scss'
